@@ -1,60 +1,104 @@
 <template>
   <div class="flex items-center gap-[10px] justify-between mb-6 lg:mb-[42px]">
+    <!-- left section: search and sort -->
     <div class="flex gap-3">
+      <!-- search bar -->
       <SearchBar width="w-[140px] lg:w-[200px]" />
-      <div class="relative inline-block">
-        <select class="appearance-none border border-lighterGrey text-textDark text-select rounded-3xl py-2 pl-4 pr-8 cursor-pointer focus:outline-none focus:ring-0 h-[46px] w-[85px]">
-          <option value="">Sort</option>
-          <option value="recent">Most Recent</option>
-          <option value="popular">Most Popular</option>
-          <option value="az">A → Z</option>
-        </select>
 
-        <!-- Down Arrow -->
-        <svg
-          class="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 h-4 w-4 text-black"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          viewBox="0 0 24 24"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M19 9l-7 7-7-7"
-          />
-        </svg>
-      </div>
+      <!-- sort dropdown -->
+      <SortSelect
+        v-model="sortValue"
+        :options="sortOptions"
+        @update:model-value="handleSortChange"
+      />
     </div>
+
+    <!-- right section: view controls -->
     <div class="flex gap-3 items-center">
-      <p class="hidden lg:block cursor-pointer">View</p>
-      <div class="flex items-center justify-center h-[42px] w-[42px] rounded-full lg:border border-lighterGrey cursor-pointer">
-        <img
-          src="/images/filter.svg"
-          alt="filter icon"
-          class="h-3 cursor-pointer"
-        />
-      </div>
-      <div class="flex items-center justify-center h-[42px] w-[42px] rounded-full border lg:border-none border-lighterGrey cursor-pointer">
-        <img
-          src="/images/drag.svg"
-          alt="drag icon"
-          class="h-3"
-        />
-      </div>
-      <div class="items-center justify-center h-[42px] w-[42px] rounded-full border lg:border-none border-lighterGrey cursor-pointer lg:flex hidden">
-        <img
-          src="/images/multidrag.svg"
-          alt="multi drag icon"
-          class="h-3"
-        />
-      </div>
+      <!-- view label (desktop) -->
+      <p class="hidden lg:block cursor-pointer text-body">
+        View
+      </p>
+
+      <!-- filter button -->
+      <IconButton
+        icon-src="/images/filter.svg"
+        icon-alt="Filter"
+        :border="true"
+        ariaLabel="Filter lessons"
+        class="lg:border-lighterGrey"
+        @click="handleFilterClick"
+      />
+
+      <!-- drag handle button -->
+      <IconButton
+        icon-src="/images/drag.svg"
+        icon-alt="Drag"
+        :border="true"
+        ariaLabel="Drag to reorder"
+        class="border-lighterGrey lg:border-transparent"
+        @click="handleDragClick"
+      />
+
+      <!-- multi-drag button (desktop) -->
+      <IconButton
+        icon-src="/images/multidrag.svg"
+        icon-alt="Multi drag"
+        :border="false"
+        ariaLabel="Multi-select drag"
+        class="hidden lg:flex"
+        @click="handleMultiDragClick"
+      />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-// This component just wraps content for now
+import { ref } from 'vue'
+
+// sort state
+const sortValue = ref('')
+
+// sort options
+const sortOptions = [
+  { value: '', label: 'Sort' },
+  { value: 'recent', label: 'Most Recent' },
+  { value: 'popular', label: 'Most Popular' },
+  { value: 'az', label: 'A → Z' },
+]
+
+/**
+ * handles sort dropdown change
+ */
+function handleSortChange(value: string) {
+  sortValue.value = value
+  // TODO: implement sorting logic
+  console.log('Sort changed to:', value)
+}
+
+/**
+ * handles filter button click
+ */
+function handleFilterClick() {
+  // TODO: implement filter panel
+  console.log('Filter clicked')
+}
+
+/**
+ * handles drag button click
+ */
+function handleDragClick() {
+  // TODO: implement drag mode
+  console.log('Drag mode clicked')
+}
+
+/**
+ * handles multi-drag button click
+ */
+function handleMultiDragClick() {
+  // TODO: implement multi-select drag mode
+  console.log('Multi-drag mode clicked')
+}
 </script>
 
 <style scoped>

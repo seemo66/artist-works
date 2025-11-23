@@ -1,19 +1,22 @@
 <template>
   <div class="flex h-screen overflow-hidden">
+    <!-- sidebar navigation -->
     <SideNav />
+    
+    <!-- main content area -->
     <div class="flex-1 overflow-y-auto">
-      <!-- Header component -->
+      <!-- header with search and actions -->
       <HeadSection />
 
+      <!-- main content -->
       <main class="px-4 py-8 lg:px-[66px] lg:py-16">
-
-        <!-- Page title & meta data-->
+        <!-- page title and metadata -->
         <PageTitle />
 
-        <!-- Search area -->
+        <!-- search and filter controls -->
         <SearchControls />
 
-        <!-- Grid of results or content -->
+        <!-- lessons grid -->
         <Grid />
       </main>
     </div>
@@ -21,8 +24,8 @@
 </template>
 
 <script setup lang="ts">
-
-
+// lesson overview page
+// displays the main lesson content with navigation, search, and lesson cards
 </script>
 
 <style scoped>

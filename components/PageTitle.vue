@@ -1,24 +1,29 @@
 <template>
   <div class="mb-8 lg:mb-12">
-    <h1 class="text-page-heading text-textDark lg:text-primary mb-4 align-bottom">Intermediate</h1>
-    <ul class="flex items-center text-page-meta text-textMedium">
-      <li class="flex items-center">
-        64 Topics
-      </li>
-      <li class="mx-2">·</li>
-      <li class="flex items-center">
-        283 Lesson Videos
-      </li>
-      <li class="mx-2">·</li>
-      <li class="flex items-center">
-        1673 Video Exchanges
-      </li>
-    </ul>
+    <!-- page title -->
+    <h1 class="text-page-heading text-textDark lg:text-primary mb-4 align-bottom">
+      {{ title }}
+    </h1>
+    
+    <!-- metadata list -->
+    <MetaList :items="metaItems" />
   </div>
 </template>
 
 <script setup lang="ts">
-// No logic for now
+interface Props {
+  title?: string
+  metaItems?: string[]
+}
+
+withDefaults(defineProps<Props>(), {
+  title: 'Intermediate',
+  metaItems: () => [
+    '64 Topics',
+    '283 Lesson Videos',
+    '1673 Video Exchanges',
+  ],
+})
 </script>
 
 <style scoped>
