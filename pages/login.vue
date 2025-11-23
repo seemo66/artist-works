@@ -1,26 +1,29 @@
 <template>
   <div class="flex h-screen">
-    <!-- left panel -->
-    <div class="hidden md:block w-[415px]">
-      <div class="relative h-full items-start justify-center text-white p-[50px]
-            bg-[linear-gradient(135deg,_#052444_0%,_#052444_50%,_#4285F4_90%,_#4285F4_100%)]">
-        <h1 class="text-[56px] font-bold leading-[60px] tracking-normal">
+    <!-- left panel: decorative welcome section -->
+    <aside class="hidden md:block w-[415px]">
+      <div class="relative h-full items-start justify-center text-white p-[50px] bg-login-gradient">
+        <h1 class="text-welcome-heading">
           Welcome<br />Back
         </h1>
         <img
           src="/images/login-bg.png"
+          alt=""
           class="absolute bottom-0 left-0"
+          loading="eager"
+          aria-hidden="true"
         />
-
       </div>
-    </div>
-    <!-- right panel -->
-    <div class="flex md:flex-1 justify-center w-full">
+    </aside>
+
+    <!-- right panel: login form -->
+    <main class="flex md:flex-1 justify-center w-full">
       <LoginForm />
-    </div>
+    </main>
   </div>
 </template>
 
 <script setup lang="ts">
-
+// login page layout component
+// handles the two-panel layout with decorative left side and form on the right
 </script>

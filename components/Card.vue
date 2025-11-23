@@ -15,7 +15,7 @@
           v-if="completed"
           class="absolute inset-0 flex items-center justify-center"
         >
-          <div class="hidden lg:block absolute inset-0 bg-[#595959] opacity-75 rounded-lg"></div>
+          <div class="hidden lg:block absolute inset-0 bg-textMedium opacity-75 rounded-lg"></div>
           <img
             src="/images/check-completed-image.svg"
             alt="completed icon"
@@ -26,21 +26,21 @@
 
       <!-- Title & Subtitle -->
       <div class="flex flex-col gap-3 w-full lg:gap-[10px]">
-        <h3 class="text-[14px] leading-[20px] font-medium text-primary">{{ title }}</h3>
-        <p class="text-[12px] leading-[12px] font-medium text-[#595959] capitalize mb-1 lg:mb-0">{{ subtitle }}</p>
+        <h3 class="text-card-title text-primary">{{ title }}</h3>
+        <p class="text-card-subtitle text-textMedium capitalize mb-1 lg:mb-0">{{ subtitle }}</p>
       </div>
     </div>
 
     <!-- Progress bar + time -->
     <div class="flex gap-3 items-center w-full">
-      <div class="w-full h-[10px] bg-[#F6F6F6] rounded-full overflow-hidden">
+      <div class="w-full h-[10px] bg-bgLight rounded-full overflow-hidden">
         <div
           class="h-full"
-          :style="{ width: completed ? '100%' : '0%', backgroundColor: completed ? '#067BC2' : 'transparent' }"
+          :class="completed ? 'w-full bg-progressBlue' : 'w-0 bg-transparent'"
         ></div>
       </div>
 
-      <div class="text-[12px] text-gray-600 hidden lg:block">{{ time }}</div>
+      <div class="text-card-time text-gray-600 hidden lg:block">{{ time }}</div>
     </div>
 
     <!-- Footer icons -->

@@ -1,105 +1,162 @@
 <template>
-  <div class="w-full px-[24px] mt-[48px] md:mt-[80px] max-w-[450px] m-auto ">
+  <div class="w-full px-[24px] mt-[48px] md:mt-[80px] max-w-[450px] m-auto">
+    <!-- logo -->
     <Logo
       :dark="true"
       class="mb-[24px] h-12"
     />
-    <h2 class="text-primary font-bold text-[24px] leading-[28px] mb-[24px]">Sign in to ArtistWorks</h2>
-    <p class="text-[14px] font-medium leading-[22px] text-primary pb-[40px]">
+    
+    <!-- heading -->
+    <h2 class="text-primary text-form-heading mb-[24px]">Sign in to ArtistWorks</h2>
+    
+    <!-- sign up prompt -->
+    <p class="text-body text-primary pb-[40px]">
       New user?
-      <NuxtLink class="text-pink ml-[8px] cursor-pointer">Create an account.</NuxtLink>
+      <NuxtLink
+        to="/signup"
+        class="text-pink ml-[8px] cursor-pointer hover:underline"
+      >
+        Create an account.
+      </NuxtLink>
     </p>
 
+    <!-- login form -->
     <form
       @submit.prevent="handleLogin"
       class="flex flex-col gap-[24px] mb-[24px]"
+      novalidate
     >
-      <div>
-        <label class="text-primary font-medium text-[12px] inline-block mb-2">Username</label>
-        <input
-          v-model="username"
-          type="text"
-          class="border-lightGrey border rounded-lg w-full px-4 py-4 text-[14px] leading-[20px] text-primary placeholder-mediumGrey focus:outline-none focus:none"
-          placeholder="Choose a username"
-        />
-      </div>
+      <!-- username field -->
+      <FormField
+        id="username"
+        v-model="username"
+        label="Username"
+        type="text"
+        autocomplete="username"
+        placeholder="Choose a username"
+        :required="true"
+        :disabled="isLoading"
+      />
 
-      <div>
-        <label class="text-primary font-medium text-[12px] inline-block mb-2">Password</label>
-        <input
-          v-model="password"
-          type="password"
-          class="border-lightGrey border rounded-lg w-full px-4 py-4 text-[14px] leading-[20px] text-primary placeholder-mediumGrey focus:outline-none focus:none"
-          placeholder="Create a password"
-        />
-      </div>
+      <!-- password field -->
+      <FormField
+        id="password"
+        v-model="password"
+        label="Password"
+        type="password"
+        autocomplete="current-password"
+        placeholder="Create a password"
+        :required="true"
+        :disabled="isLoading"
+      />
 
+      <!-- submit button -->
       <button
         type="submit"
-        class="bg-blue text-white rounded-full w-full text-[14px] font-bold leading-4 px-4 py-4 tracking-normal h-[52px]"
+        class="bg-blue text-white rounded-full w-full text-button px-4 py-4 tracking-normal h-[52px] hover:bg-blue/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+        :disabled="!isFormValid || isLoading"
       >
-        Continue
+        {{ isLoading ? 'Signing in...' : 'Continue' }}
       </button>
     </form>
 
-    <NuxtLink class="text-pink ml-[8px] text-[14px] font-medium leading-[22px] cursor-pointer">Forgot password?</NuxtLink>
+    <!-- forgot password link -->
+    <NuxtLink
+      to="/forgot-password"
+      class="text-pink ml-[8px] text-body cursor-pointer hover:underline"
+    >
+      Forgot password?
+    </NuxtLink>
 
     <!-- divider -->
-    <div class="flex items-center gap-3 my-10">
-      <div class="h-px bg-lighterGrey flex-1"></div>
-      <span class="text-[14px] leading-[22px] text-mediumGrey">Or sign up with</span>
-      <div class="h-px bg-lighterGrey flex-1"></div>
-    </div>
+    <Divider text="Or sign up with" />
 
-    <!-- Social Buttons -->
+    <!-- social login buttons -->
     <div class="flex gap-4">
-      <button
+      <SocialLoginButton
+        provider="Google"
+        icon-src="/images/google-icon.svg"
+        :disabled="isLoading"
         @click="handleSocialLogin('Google')"
-        class="font-bold text-[14px] border border-primary rounded-md px-5 py-3 flex items-center justify-center gap-2 w-full"
-      >
-        <img
-          src="/images/google-icon.svg"
-          class="h-6"
-        />
-        Google
-      </button>
-
-      <button
+      />
+      <SocialLoginButton
+        provider="Apple"
+        icon-src="/images/apple-icon.svg"
+        :disabled="isLoading"
         @click="handleSocialLogin('Apple')"
-        class="font-bold text-[14px] border border-primary rounded-md px-5 py-3 flex items-center justify-center gap-2 w-full"
-      >
-        <img
-          src="/images/apple-icon.svg"
-          class="h-6"
-        />
-        Apple
-      </button>
+      />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import { useRouter } from 'vue-router'
 import { useAuthStore } from '~/stores/auth'
 
+// form state
 const username = ref('')
 const password = ref('')
+const isLoading = ref(false)
 
+// composables
 const router = useRouter()
 const auth = useAuthStore()
 
-function handleLogin() {
-  // Fake login: accept any username/password
-  auth.login()
+// computed properties
+const isFormValid = computed(() => {
+  return username.value.trim().length > 0 && password.value.trim().length > 0
+})
 
-  // Redirect to lesson overview
-  router.push('/lessonOverview')
+/**
+ * handles form submission for username/password login
+ * currently accepts any credentials for demo purposes
+ */
+async function handleLogin() {
+  if (!isFormValid.value || isLoading.value) {
+    return
+  }
+
+  isLoading.value = true
+  
+  try {
+    // simulate api call delay
+    await new Promise(resolve => setTimeout(resolve, 300))
+    
+    auth.login()
+    router.push('/lessonOverview')
+  } catch (error) {
+    console.error('Login failed:', error)
+    // handle error state here if needed
+  } finally {
+    isLoading.value = false
+  }
 }
 
-function handleSocialLogin(provider: string) {
-  console.log(`${provider} login clicked`) // just for demo
-  auth.login()
-  router.push('/lessonOverview')
+/**
+ * handles social login button clicks
+ * @param provider - the social provider name (e.g., 'Google', 'Apple')
+ */
+async function handleSocialLogin(provider: string) {
+  if (isLoading.value) {
+    return
+  }
+
+  console.log(`${provider} login clicked`) // demo logging
+  
+  isLoading.value = true
+  
+  try {
+    // simulate api call delay
+    await new Promise(resolve => setTimeout(resolve, 300))
+    
+    auth.login()
+    router.push('/lessonOverview')
+  } catch (error) {
+    console.error(`${provider} login failed:`, error)
+    // handle error state here if needed
+  } finally {
+    isLoading.value = false
+  }
 }
 </script>

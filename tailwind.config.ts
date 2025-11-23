@@ -19,6 +19,16 @@ const config: Config = {
         lightGrey: '#D3D6DF',
         mediumGrey: '#767676',
         blue: '#4285F4',
+        // Navigation colors
+        navDark: '#052444',
+        navActive: '#375069',
+        // Text colors
+        textDark: '#252525',
+        textMedium: '#595959',
+        // Background colors
+        bgLight: '#F6F6F6',
+        // Accent colors
+        progressBlue: '#067BC2',
       },
     },
   },

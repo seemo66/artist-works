@@ -7,3 +7,98 @@
     font-family: 'Manrope', sans-serif;
   }
 }
+
+@layer utilities {
+  /* Exact matches for existing text styles - DO NOT CHANGE VALUES */
+
+  /* Nav text: 14px/14px semibold */
+  .text-nav {
+    @apply text-[14px] font-semibold leading-[14px];
+  }
+
+  /* Course card name: 12px/18px semibold */
+  .text-course-name {
+    @apply text-[12px] font-semibold leading-[18px];
+  }
+
+  /* Card title: 14px/20px medium */
+  .text-card-title {
+    @apply text-[14px] font-medium leading-[20px];
+  }
+
+  /* Card subtitle: 12px/12px medium */
+  .text-card-subtitle {
+    @apply text-[12px] font-medium leading-[12px];
+  }
+
+  /* Card time: 12px (no line-height specified, uses default) */
+  .text-card-time {
+    @apply text-[12px];
+  }
+
+  /* Search input: 14px/22px semibold tracking-0 */
+  .text-search-input {
+    @apply text-[14px] font-semibold leading-[22px] tracking-[0px];
+  }
+
+  /* Select dropdown: 14px/22px semibold */
+  .text-select {
+    @apply text-[14px] font-semibold leading-[22px];
+  }
+
+  /* Page heading: 36px/48px bold, lg:56px/56px bold */
+  .text-page-heading {
+    @apply text-[36px] font-bold leading-[48px] lg:text-[56px] lg:leading-[56px];
+  }
+
+  /* Page meta: 12px/12px medium, lg:14px/22px medium */
+  .text-page-meta {
+    @apply text-[12px] font-medium leading-[12px] lg:text-[14px] lg:leading-[22px];
+  }
+
+  /* Form heading: 24px/28px bold */
+  .text-form-heading {
+    @apply text-[24px] font-bold leading-[28px];
+  }
+
+  /* Body text: 14px/22px medium */
+  .text-body {
+    @apply text-[14px] font-medium leading-[22px];
+  }
+
+  /* Form label: 12px medium */
+  .text-form-label {
+    @apply text-[12px] font-medium;
+  }
+
+  /* Input text: 14px/20px */
+  .text-input {
+    @apply text-[14px] leading-[20px];
+  }
+
+  /* Button text: 14px/16px bold */
+  .text-button {
+    @apply text-[14px] font-bold leading-4;
+  }
+
+  /* Section label: 12px bold leading-3 tracking-wide */
+  .text-section-label {
+    @apply text-[12px] font-bold leading-3 tracking-wide;
+  }
+
+  /* Welcome heading: 56px/60px bold tracking-normal */
+  .text-welcome-heading {
+    @apply text-[56px] font-bold leading-[60px] tracking-normal;
+  }
+
+  /* Login page gradient background */
+  .bg-login-gradient {
+    background: linear-gradient(
+      135deg,
+      #052444 0%,
+      #052444 50%,
+      #4285F4 90%,
+      #4285F4 100%
+    );
+  }
+}

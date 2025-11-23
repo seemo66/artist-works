@@ -1,7 +1,7 @@
 <template>
   <div class="hidden lg:flex h-screen overflow-hidden">
     <!-- Sidebar -->
-    <nav class="flex flex-col sticky top-0 h-screen w-[233px] bg-[#052444] text-white font-semibold text-[14px] leading-[14px]  p-4 pt-6 pb-[41px]">
+    <nav class="flex flex-col sticky top-0 h-screen w-[233px] bg-navDark text-white text-nav p-4 pt-6 pb-[41px]">
       <!-- Logo -->
       <div class="mb-[52px]">
         <!-- Replace with actual logo -->
@@ -15,7 +15,7 @@
           class="w-10 h-10 rounded"
         ></img>
         <div class="flex-1 flex items-center">
-          <p class="text-[12px] leading-[18px] font-semibold">Banjo with Noam Pikelny</p>
+          <p class="text-course-name">Banjo with Noam Pikelny</p>
           <img
             src="/images/controls.svg"
             class="w-4 h-4 cursor-pointer"
@@ -33,7 +33,7 @@
           <span>Home</span>
         </li>
 
-        <li class="flex items-center gap-3 px-3 bg-[#375069] rounded-lg cursor-pointer h-10">
+        <li class="flex items-center gap-3 px-3 bg-navActive rounded-lg cursor-pointer h-10">
           <img
             src="/images/lessons.svg"
             class="w-4 h-4"

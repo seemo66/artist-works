@@ -10,7 +10,7 @@
         class="hidden lg:block h-8"
         alt="menu"
       />
-      <p class="hidden lg:block font-bold text-[12px] text-mediumGrey leading-3  tracking-wide">LESSONS</p>
+      <p class="hidden lg:block text-section-label text-mediumGrey">LESSONS</p>
       <img
         src="/images/hamburger.svg"
         class="h-6 lg:hidden"
@@ -32,7 +32,7 @@
       />
       <button
         type="submit"
-        class="relative bg-blue text-white rounded-full text-[14px] font-bold px-4 tracking-normal h-[42px] flex items-center justify-center gap-2 w-[157px]"
+        class="relative bg-blue text-white rounded-full text-button px-4 tracking-normal h-[42px] flex items-center justify-center gap-2 w-[157px]"
       >
         <img
           src="/images/circle-arrow-up.svg"

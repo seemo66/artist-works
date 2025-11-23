@@ -1,7 +1,7 @@
 <template>
   <div class="mb-8 lg:mb-12">
-    <h1 class="text-[36px] lg:text-[56px] font-bold text-[#252525] lg:text-primary leading-12 lg:leading-[56px] mb-4 align-bottom">Intermediate</h1>
-    <ul class="flex items-center text-[12px] leading-[12px] font-medium text-[#595959] lg:text-[14px] lg:leading-[22px]">
+    <h1 class="text-page-heading text-textDark lg:text-primary mb-4 align-bottom">Intermediate</h1>
+    <ul class="flex items-center text-page-meta text-textMedium">
       <li class="flex items-center">
         64 Topics
       </li>

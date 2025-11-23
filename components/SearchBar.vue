@@ -3,7 +3,7 @@
     <input
       type="text"
       placeholder="Search"
-      :class="['bg-[#F6F6F6] px-4 py-3 pl-10 rounded-3xl text-[14px] leading-[22px] tracking-[0px] font-semibold text-primary placeholder:text-primary focus:outline-none focus:ring-0 h-[46px]', widthClass]"
+      :class="['bg-bgLight px-4 py-3 pl-10 rounded-3xl text-search-input text-primary placeholder:text-primary focus:outline-none focus:ring-0 h-[46px]', widthClass]"
     />
     <img
       src="/images/spyglass.svg"

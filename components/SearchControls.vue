@@ -3,7 +3,7 @@
     <div class="flex gap-3">
       <SearchBar width="w-[140px] lg:w-[200px]" />
       <div class="relative inline-block">
-        <select class="appearance-none border border-lighterGrey text-[#252525] font-semibold rounded-3xl py-2 pl-4 pr-8 text-[14px] leading-[22px] cursor-pointer focus:outline-none focus:ring-0 h-[46px] w-[85px]">
+        <select class="appearance-none border border-lighterGrey text-textDark text-select rounded-3xl py-2 pl-4 pr-8 cursor-pointer focus:outline-none focus:ring-0 h-[46px] w-[85px]">
           <option value="">Sort</option>
           <option value="recent">Most Recent</option>
           <option value="popular">Most Popular</option>
