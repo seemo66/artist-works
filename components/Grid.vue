@@ -62,10 +62,6 @@ async function fetchLessonsData(): Promise<Lesson[]> {
   // simulate API call delay
   await new Promise(resolve => setTimeout(resolve, 500))
 
-  // mock data - replace with actual API call
-  // const { data } = await $fetch('/api/lessons')
-  // return data
-
   return [
     { id: 1, image: '/images/api/junel-mujar-TpdyCbvJHFU-unsplash.png', title: 'Diatonic Chords: 1st Inversion - Chord Shapes and Qualities', subtitle: 'lesson', time: '23:23', completed: false },
     { id: 2, image: '/images/api/jimmy-t-G2voTdnR6CM-unsplash.png', title: 'Diatonic Chords: 1st Inversion - Chord Shapes and Qualities', subtitle: 'lesson', time: '23:23', completed: false },
