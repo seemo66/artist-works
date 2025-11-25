@@ -39,3 +39,4 @@ describe('Login Page', () => {
     expect(wrapper.findComponent({ name: 'LoginForm' }).exists()).toBe(true);
   });
 });
+

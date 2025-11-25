@@ -71,3 +71,4 @@ describe('Card', () => {
     expect(wrapper.emitted('bookmark')).toBeTruthy();
   });
 });
+

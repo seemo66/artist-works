@@ -35,3 +35,4 @@ describe('SideNav', () => {
     expect(text).toContain('My Account');
   });
 });
+

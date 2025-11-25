@@ -22,3 +22,4 @@ describe('Grid', () => {
     expect(wrapper.exists()).toBe(true);
   });
 });
+

@@ -41,3 +41,4 @@ describe('SearchControls', () => {
     expect(viewLabel.text()).toContain('View');
   });
 });
+

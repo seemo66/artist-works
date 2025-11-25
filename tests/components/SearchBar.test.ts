@@ -29,3 +29,4 @@ describe('SearchBar', () => {
     expect(wrapper.find('input').classes()).toContain('w-[300px]');
   });
 });
+

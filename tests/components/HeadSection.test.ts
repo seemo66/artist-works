@@ -33,3 +33,4 @@ describe('HeadSection', () => {
     expect(wrapper.findComponent(SubmitVideoButton).exists()).toBe(true);
   });
 });
+

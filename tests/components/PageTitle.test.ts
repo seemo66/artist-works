@@ -46,3 +46,4 @@ describe('PageTitle', () => {
     expect(metaList.props('items')).toEqual(metaItems);
   });
 });
+

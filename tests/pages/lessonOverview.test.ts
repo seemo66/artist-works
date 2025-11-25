@@ -25,3 +25,4 @@ describe('Lesson Overview Page', () => {
     expect(wrapper.find('main').exists()).toBe(true);
   });
 });
+
